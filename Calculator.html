@@ -1,0 +1,261 @@
+<html>
+    <head>
+        <title>
+            calculator
+        </title>
+        <style>
+            .background{
+                background-color: darkslategray;
+            }
+            .button{
+                background-color:grey ;
+                border-radius: 20px;
+                border-width: 2px;
+                height: 100px;
+                width: 100px;
+            }
+            .display{
+                width: 400px;
+                height: 150px;
+                background-color: aquamarine;
+                border-radius: 20px;
+                padding-left: 10px;
+                font-size: 100px;
+            }
+        </style>
+        <script>
+            var blinker = document.getElementsByClassName("display");
+            /*window.onload = function()
+            {
+                //if(blinker[0].innerHTML)
+                //{
+                    
+                //}
+            var size = blinker[0].innerHTML.length;
+            var i = blinker[0].innerHTML;
+            //console.log(i);
+            var arr = new Array();
+            for(var x = 0; x < size; x++)
+            {
+                arr[x] = i.charAt(x);
+            }
+                setInterval(appear, 3000);
+                setInterval(blink, 4000);
+                function appear()
+                {
+                    blinker[0].innerHTML = " ";
+                    arr[size] = "|";
+                    blinker[0].innerHTML = (blinker[0].innerHTML + "|");
+                    for(var y = 0; y <= size; y++)
+                    {
+                    console.log(blinker[0].innerHTML + arr[y]);
+                    }
+                }
+                function blink()
+                {
+                    blinker[0].innerHTML = " ";
+                    arr[size] = " " ;
+                    blinker[0].innerHTML = (blinker[0].innerHTML + " ");
+                    for(var y = 0; y <= size; y++)
+                    {
+                    console.log(blinker[0].innerHTML + arr[y]);
+                    }
+                }
+            }*/
+            function one()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "1");
+            }
+            function two()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "2");
+            }
+            function three()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "3");
+            }
+            function four()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "4");
+            }
+            function five()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "5");
+            }
+            function six()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "6");
+            }
+            function seven()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "7");
+            }
+            function eight()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "8");
+            }
+            function nine()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "9");
+            }
+            function zero()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "0");
+            }
+            function plus()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "+");
+            }
+            function minus()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "-");
+            }
+            function times()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "*");
+            }
+            function divide()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "/");
+            }
+            function modulus()
+            {
+                blinker[0].innerHTML = (blinker[0].innerHTML + "%");
+            }
+            function equals()
+            {
+                var arr = new Array();
+                var size = blinker[0].innerHTML.length;
+                console.log(size);
+                arr = blinker[0].innerHTML;
+                console.log(arr);
+                for (var index = 0; index < size; index++)
+                {
+                    if(arr[index] == "+")
+                    {
+                        var identifier = index;
+                        identifier--;
+                        var a = arr[identifier];
+                        console.log(a);
+                        identifier++;
+                        identifier++;
+                        var b = arr[identifier];
+                        console.log(b);
+                        var c = a+b;
+                        console.log(c);
+                    }
+                }
+                blinker[0].innerHTML = (blinker[0].innerHTML + "=");
+            }
+            
+            /*function one() {
+    var element = document.getElementById("me"); // Replace "yourElementId" with your actual element ID
+    if (element) {
+ )       element.innerHTML = "Button One Clicked"; // Example content
+    } else {
+        console.error("Element with id 'yourElementId' not found.");
+    }*/
+//}
+
+        </script>
+    </head>
+    <body class = "background">
+        <table>
+            <tbody>
+                <tr>
+                    <td class = "display"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <button class = "button" onclick = "one()">
+                            1
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="two()">
+                            2
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="three()">
+                            3
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="plus()">
+                            +
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class = "button" onclick="four()">
+                            4
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="five()">
+                            5
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="six()">
+                            6
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="minus()">
+                            -
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class = "button" onclick="seven()">
+                            7
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="eight()">
+                            8
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="nine()">
+                            9
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="times()">
+                            *
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class = "button" onclick="equals()">
+                            =
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="zero()">
+                            0
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="modulus()">
+                            %
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "button" onclick="divide()">
+                            /
+                        </button>
+                    </td>
+                </tr>
+    </body>
+</html>
