@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script>
+            window.onload = function(){
+            var addd = document.getElementById("add");
+            
+            var arr = new Array();
+            arr = add.innerHTML;
+            
+                
+                var size = addd.innerHTML.length;
+                
+                
+            }
+            var addd = document.getElementById("add");
+            var size = blinker[0].innerHTML.length;
+            var number = 0;
+            var x = 0;
+                function group(){
+                for(x = x; x < size; x++)
+                {
+                    console.log(arr[x]);
+                    if(arr[x] == "1")
+                    {
+                        number += "1";
+                    }
+                    else if(arr[x] == "8")
+                    {
+                        number += "8";
+                    }
+                    else if(arr[x] == "7")
+                    {
+                        number += "7";
+                    }
+                    else if(arr[x] == "9")
+                    {
+                        number += "9";
+                    }else if(arr[x] == "5")
+                    {
+                        number += "5";
+                    }
+                    else if(arr[x] == "+")
+                    {
+                        console.log(number);
+                        wholeNo(number, x);
+                        break;    
+                    }
+                    }
+                }
+            
+                    var index = 0;
+                    function wholeNo(number, x){
+                        console.log("me");
+                        var numbers = new Array();
+                        numbers[index] = number;
+                        console.log(number);
+                        console.log(numbers[index]);
+                        console.log(x);
+                        index++;
+                        group();
+                  
+                    //console.log(x);    
+                //console.log(number);            
+                }
+                </script>
+        <style>
+            .body{
+                background-color: black;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body class= "body">
+        <p id ="add">187+985</p>
+        <button onclick="group()">=</button>
+    </body>
+</html>

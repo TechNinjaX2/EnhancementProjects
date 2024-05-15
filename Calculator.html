@@ -124,30 +124,126 @@
             }
             function equals()
             {
-                var arr = new Array();
+                blinker[0].innerHTML = (blinker[0].innerHTML + "=");
+                /*var arr = new Array();
                 var size = blinker[0].innerHTML.length;
-                console.log(size);
                 arr = blinker[0].innerHTML;
-                console.log(arr);
+                console.log(arr[0]);
                 for (var index = 0; index < size; index++)
                 {
                     if(arr[index] == "+")
                     {
                         var identifier = index;
-                        identifier--;
+                        wholeNo(arr, identifier);
+                        /*identifier--;
                         var a = arr[identifier];
                         console.log(a);
                         identifier++;
                         identifier++;
                         var b = arr[identifier];
                         console.log(b);
-                        var c = a+b;
+                        var c = parseInt(a)+parseInt(b);
                         console.log(c);
+                    }*/
+                    var arr = new Array();
+                    var size = blinker[0].innerHTML.length;
+            var number = 0;
+            var x = 0;
+            var j = 0;
+            arr =blinker[0].innerHTML;
+                while(j < size)
+                {
+                    console.log("me");
+                    for(var x = j; x <= size; x++)
+                {
+                    j++;
+                    console.log(arr[x]);
+                    if(arr[x] == "1")
+                    {
+                        number += "1";
                     }
-                }
-                blinker[0].innerHTML = (blinker[0].innerHTML + "=");
+                    if(arr[x] == "2")
+                    {
+                        number += "2";
+                    }
+                    if(arr[x] == "3")
+                    {
+                        number += "3";
+                    }
+                    if(arr[x] == "4")
+                    {
+                        number += "4";
+                    }
+                    else if(arr[x] == "5")
+                    {
+                        number += "5";
+                    }
+                    if(arr[x] == "6")
+                    {
+                        number += "6";
+                    }
+                    else if(arr[x] == "7")
+                    {
+                        number += "7";
+                    }
+                    else if(arr[x] == "8")
+                    {
+                        number += "8";
+                    }
+                    
+                    else if(arr[x] == "9")
+                    {
+                        number += "9";
+                    }
+                    else if(arr[x] == "+")
+                    {
+                        console.log(number);
+                        wholeNo(number, x);
+                        break;    
+                    }
+                    else if(arr[x] == "=")
+                    {
+                        console.log(number);
+                        wholeNo(number, x);
+                        break;    
+                    }
+                    }
+        
+            
+                    var index = 0;
+                    function wholeNo(number, x){
+                        console.log("me");
+                        var numbers = new Array();
+                        index++;
+                        numbers[index] = number;
+                        console.log(number);
+                        console.log(numbers[index]);
+                        console.log(x);
+                        console.log(index);
+                        
+                    }
+                
             }
             
+        }
+            function wholeNo(arr, identifier)
+            {
+                identifier--;
+                while(identifier > 0)
+                {
+                    var numberSize = 0;
+                    while(arr[identifier] != "-" || arr[0])
+                    {
+                        console.log("me");
+                        numberSize ++;
+                        var number = new Array();
+                        number = arr[identifier];
+                        identifier--;
+                    }
+                    identifier--;
+                    console.log(number);
+                }
+            }
             /*function one() {
     var element = document.getElementById("me"); // Replace "yourElementId" with your actual element ID
     if (element) {
