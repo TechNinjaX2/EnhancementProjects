@@ -6,6 +6,7 @@
         <style>
             .background{
                 background-color: darkslategray;
+                place-content: center;
             }
             .button{
                 background-color:grey ;
@@ -150,14 +151,15 @@
             var number = 0;
             var x = 0;
             var j = 0;
+            //var index = 0;
             arr =blinker[0].innerHTML;
                 while(j < size)
                 {
-                    console.log("me");
+                    //console.log("me");
                     for(var x = j; x <= size; x++)
                 {
                     j++;
-                    console.log(arr[x]);
+                    //console.log(arr[x]);
                     if(arr[x] == "1")
                     {
                         number += "1";
@@ -195,38 +197,35 @@
                     {
                         number += "9";
                     }
-                    else if(arr[x] == "+")
+                    else if((arr[x] == "+") || (arr[x] == "-") || (arr[x] == "/") || (arr[x] == "*") || (arr[x] == "%") || (arr[x] == "="))
                     {
-                        console.log(number);
-                        wholeNo(number, x);
-                        break;    
-                    }
-                    else if(arr[x] == "=")
-                    {
-                        console.log(number);
-                        wholeNo(number, x);
+                        var numbers = parseInt(number);
+                        console.log(numbers);
+                        
+                        //wholeNo(number, x);
+                        number = 0;
                         break;    
                     }
                     }
         
             
-                    var index = 0;
-                    function wholeNo(number, x){
-                        console.log("me");
-                        var numbers = new Array();
-                        index++;
-                        numbers[index] = number;
-                        console.log(number);
-                        console.log(numbers[index]);
-                        console.log(x);
-                        console.log(index);
-                        
-                    }
+                    //Changes the concatenated strings to integer
+                    /*function wholeNo(number, x){
+                        //console.log(index);
+                        //var numbers = new Array();
+                        var numbers = parseInt(number);
+                        //console.log(number);
+                        console.log(numbers);
+                        //console.log(x);
+                        //console.log(index);
+                        //index++;
+                        //console.log(index);
+                    }*/
                 
             }
             
         }
-            function wholeNo(arr, identifier)
+            /*function wholeNo(arr, identifier)
             {
                 identifier--;
                 while(identifier > 0)
@@ -243,7 +242,7 @@
                     identifier--;
                     console.log(number);
                 }
-            }
+            }*/
             /*function one() {
     var element = document.getElementById("me"); // Replace "yourElementId" with your actual element ID
     if (element) {
