@@ -7,6 +7,7 @@
             .background{
                 background-color: darkslategray;
                 place-content: center;
+                display: grid;
             }
             .button{
                 background-color:grey ;
@@ -15,151 +16,102 @@
                 height: 100px;
                 width: 100px;
             }
+            .table{
+                width: min-content;
+                background-color: aqua;
+                padding: 20px;
+                border-radius: 20px;
+                border-width: 20px;
+                border-color: aqua;
+            }
             .display{
-                width: 400px;
+                width: 100%;
                 height: 150px;
                 background-color: aquamarine;
                 border-radius: 20px;
-                padding-left: 10px;
                 font-size: 100px;
+                text-align: right;
             }
         </style>
         <script>
             var blinker = document.getElementsByClassName("display");
-            /*window.onload = function()
-            {
-                //if(blinker[0].innerHTML)
-                //{
-                    
-                //}
-            var size = blinker[0].innerHTML.length;
-            var i = blinker[0].innerHTML;
-            //console.log(i);
-            var arr = new Array();
-            for(var x = 0; x < size; x++)
-            {
-                arr[x] = i.charAt(x);
-            }
-                setInterval(appear, 3000);
-                setInterval(blink, 4000);
-                function appear()
-                {
-                    blinker[0].innerHTML = " ";
-                    arr[size] = "|";
-                    blinker[0].innerHTML = (blinker[0].innerHTML + "|");
-                    for(var y = 0; y <= size; y++)
-                    {
-                    console.log(blinker[0].innerHTML + arr[y]);
-                    }
-                }
-                function blink()
-                {
-                    blinker[0].innerHTML = " ";
-                    arr[size] = " " ;
-                    blinker[0].innerHTML = (blinker[0].innerHTML + " ");
-                    for(var y = 0; y <= size; y++)
-                    {
-                    console.log(blinker[0].innerHTML + arr[y]);
-                    }
-                }
-            }*/
             function one()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "1");
+                blinker[0].value = (blinker[0].value + "1");
             }
             function two()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "2");
+                blinker[0].value = (blinker[0].value + "2");
             }
             function three()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "3");
+                blinker[0].value = (blinker[0].value + "3");
             }
             function four()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "4");
+                blinker[0].value = (blinker[0].value + "4");
             }
             function five()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "5");
+                blinker[0].value = (blinker[0].value + "5");
             }
             function six()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "6");
+                blinker[0].value = (blinker[0].value + "6");
             }
             function seven()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "7");
+                blinker[0].value = (blinker[0].value + "7");
             }
             function eight()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "8");
+                blinker[0].value = (blinker[0].value + "8");
             }
             function nine()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "9");
+                blinker[0].value = (blinker[0].value + "9");
             }
             function zero()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "0");
+                blinker[0].value = (blinker[0].value + "0");
             }
             function plus()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "+");
+                blinker[0].value = (blinker[0].value + "+");
             }
             function minus()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "-");
+                blinker[0].value = (blinker[0].value + "-");
             }
             function times()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "*");
+                blinker[0].value = (blinker[0].value + "*");
             }
             function divide()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "/");
+                blinker[0].value = (blinker[0].value + "/");
             }
             function modulus()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "%");
+                blinker[0].value = (blinker[0].value + "%");
             }
             function equals()
             {
-                blinker[0].innerHTML = (blinker[0].innerHTML + "=");
-                /*var arr = new Array();
-                var size = blinker[0].innerHTML.length;
-                arr = blinker[0].innerHTML;
-                console.log(arr[0]);
-                for (var index = 0; index < size; index++)
-                {
-                    if(arr[index] == "+")
-                    {
-                        var identifier = index;
-                        wholeNo(arr, identifier);
-                        /*identifier--;
-                        var a = arr[identifier];
-                        console.log(a);
-                        identifier++;
-                        identifier++;
-                        var b = arr[identifier];
-                        console.log(b);
-                        var c = parseInt(a)+parseInt(b);
-                        console.log(c);
-                    }*/
+                blinker[0].value = (blinker[0].value + "=");
+            
                     var arr = new Array();
-                    var size = blinker[0].innerHTML.length;
+                    var size = blinker[0].value.length;
             var number = 0;
             var x = 0;
             var j = 0;
-            //var index = 0;
-            arr =blinker[0].innerHTML;
+            var wholeNo = new Array();
+            var numberIndex;
+            arr =blinker[0].value;
                 while(j < size)
                 {
-                    //console.log("me");
                     for(var x = j; x <= size; x++)
                 {
                     j++;
-                    //console.log(arr[x]);
                     if(arr[x] == "1")
                     {
                         number += "1";
@@ -200,70 +152,43 @@
                     else if((arr[x] == "+") || (arr[x] == "-") || (arr[x] == "/") || (arr[x] == "*") || (arr[x] == "%") || (arr[x] == "="))
                     {
                         var numbers = parseInt(number);
-                        console.log(numbers);
-                        
-                        //wholeNo(number, x);
+                        /*wholeNo[numberIndex] = numbers;
                         number = 0;
+                        numberIndex++;*/
+                        //console.log(numbers);
+                        number = 0;
+                        calculate();
                         break;    
-                    }
-                    }
-        
-            
-                    //Changes the concatenated strings to integer
-                    /*function wholeNo(number, x){
-                        //console.log(index);
-                        //var numbers = new Array();
-                        var numbers = parseInt(number);
-                        //console.log(number);
-                        console.log(numbers);
-                        //console.log(x);
-                        //console.log(index);
-                        //index++;
-                        //console.log(index);
-                    }*/
-                
+                    } 
+                    }    }
+                    //console.log(wholeNo);
+                    var prevNo;
+                    function calculate(){
+                        if (arr[x] !== "=")
+                        {
+                            prevNo = numbers;
+                            console.log(prevNo);
+                            numbers = 0;
+                        }
+                        else if(arr[x] === "=")
+                        {
+                            var result = prevNo + numbers;
+                            console.log(numbers);
+                            console.log(prevNo);
+                            console.log(result);
+                        }
+                    }       
             }
-            
-        }
-            /*function wholeNo(arr, identifier)
-            {
-                identifier--;
-                while(identifier > 0)
-                {
-                    var numberSize = 0;
-                    while(arr[identifier] != "-" || arr[0])
-                    {
-                        console.log("me");
-                        numberSize ++;
-                        var number = new Array();
-                        number = arr[identifier];
-                        identifier--;
-                    }
-                    identifier--;
-                    console.log(number);
-                }
-            }*/
-            /*function one() {
-    var element = document.getElementById("me"); // Replace "yourElementId" with your actual element ID
-    if (element) {
- )       element.innerHTML = "Button One Clicked"; // Example content
-    } else {
-        console.error("Element with id 'yourElementId' not found.");
-    }*/
-//}
-
         </script>
     </head>
     <body class = "background">
-        <table>
+        <table class="table">
             <tbody>
                 <tr>
-                    <td class = "display"></td>
+                    <td colspan="4">
+                        <input type="text" class="display" readonly>
+                    </td>
                 </tr>
-            </tbody>
-        </table>
-        <table>
-            <tbody>
                 <tr>
                     <td>
                         <button class = "button" onclick = "one()">
@@ -352,5 +277,7 @@
                         </button>
                     </td>
                 </tr>
+            </tbody>
+        </table>
     </body>
 </html>
