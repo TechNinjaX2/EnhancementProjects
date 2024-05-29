@@ -161,7 +161,22 @@
                 var operand;
                 var result;
                 function calculate(){
-                    if (arr[x] !== "=")
+                    if ((operand) && (arr[x] !== "="))
+                    {
+                        console.log(numbers);
+                        switch (operand)
+                        {
+                            case "+": prevNo = prevNo + numbers;break;
+                            case "-": prevNo = prevNo - numbers;break;
+                            case "x": prevNo = prevNo * numbers;break;
+                            case "/": prevNo = prevNo / numbers;break;
+                            case "%": prevNo = prevNo % numbers;break;
+                        }
+                        console.log(prevNo);
+                        operand = arr[x];
+                        numbers = 0;
+                    }
+                    else if (arr[x] !== "=")
                     {
                         prevNo = numbers;
                         console.log(prevNo);
