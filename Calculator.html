@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            calculator
+            Calculator
         </title>
         <style>
             .background{
@@ -15,6 +15,13 @@
                 border-width: 2px;
                 height: 100px;
                 width: 100px;
+            }
+            .mini{
+                background-color:grey ;
+                border-radius: 20px;
+                border-width: 2px;
+                height: 100px;
+                width: 30px;
             }
             .table{
                 width: min-content;
@@ -34,7 +41,9 @@
             }
         </style>
         <script>
+            // % in this script represents modulus not percentage
             var blinker = document.getElementsByClassName("display");
+            var result;
             function one()
             {
                 blinker[0].value = (blinker[0].value + "1");
@@ -106,7 +115,7 @@
                 var j = 0;
                 var wholeNo = new Array();
                 var numberIndex;
-                arr =blinker[0].value;
+                arr = blinker[0].value;
                 while(j < size)
                 {
                     for(var x = j; x <= size; x++)
@@ -148,9 +157,13 @@
                         {
                             number += "9";
                         }
+                        else if(arr[x] == ".")
+                        {
+                            number += ".";
+                        }
                         else if((arr[x] == "+") || (arr[x] == "-") || (arr[x] == "/") || (arr[x] == "x") || (arr[x] == "%") || (arr[x] == "="))
                         {
-                            var numbers = parseInt(number);
+                            var numbers = parseFloat(number);
                             number = 0;
                             calculate();
                             break;    
@@ -159,7 +172,6 @@
                 }
                 var prevNo;
                 var operand;
-                var result;
                 function calculate(){
                     if ((operand) && (arr[x] !== "="))
                     {
@@ -231,13 +243,30 @@
                 }
                 blinker[0].value = (blinker[0].value + result);
             }
+            function decimal()
+            {
+                blinker[0].value = (blinker[0].value + ".");
+            }
+            //the next two require a result in order to function
+            function percent()
+            {
+                blinker[0].value = (result / 100);
+            }
+            function square()
+            {
+                blinker[0].value = (result * result);
+            }
+            function clearDisplay()
+            {
+                blinker[0].value = (" ");
+            }
         </script>
     </head>
     <body class = "background">
         <table class="table">
             <tbody>
                 <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                         <input type="text" class="display" readonly>
                     </td>
                 </tr>
@@ -262,6 +291,11 @@
                             +
                         </button>
                     </td>
+                    <td>
+                        <button class = "mini" onclick="clearDisplay()">
+                            C
+                        </button>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -282,6 +316,11 @@
                     <td>
                         <button class = "button" onclick="minus()">
                             -
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "mini" onclick="square()">
+                            ^2
                         </button>
                     </td>
                 </tr>
@@ -306,11 +345,16 @@
                             x
                         </button>
                     </td>
+                    <td>
+                        <button class = "mini" onclick="percent()">
+                            %
+                        </button>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <button class = "button" onclick="equals()">
-                            =
+                        <button class = "button" onclick="modulus()">
+                            mod
                         </button>
                     </td>
                     <td>
@@ -319,13 +363,18 @@
                         </button>
                     </td>
                     <td>
-                        <button class = "button" onclick="modulus()">
-                            %
+                        <button class = "button" onclick="decimal()">
+                            .
                         </button>
                     </td>
                     <td>
                         <button class = "button" onclick="divide()">
                             /
+                        </button>
+                    </td>
+                    <td>
+                        <button class = "mini" onclick="equals()">
+                            =
                         </button>
                     </td>
                 </tr>
