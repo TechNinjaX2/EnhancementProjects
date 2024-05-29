@@ -85,7 +85,7 @@
             }
             function times()
             {
-                blinker[0].value = (blinker[0].value + "*");
+                blinker[0].value = (blinker[0].value + "x");
             }
             function divide()
             {
@@ -99,85 +99,122 @@
             {
                 blinker[0].value = (blinker[0].value + "=");
             
-                    var arr = new Array();
-                    var size = blinker[0].value.length;
-            var number = 0;
-            var x = 0;
-            var j = 0;
-            var wholeNo = new Array();
-            var numberIndex;
-            arr =blinker[0].value;
+                var arr = new Array();
+                var size = blinker[0].value.length;
+                var number = 0;
+                var x = 0;
+                var j = 0;
+                var wholeNo = new Array();
+                var numberIndex;
+                arr =blinker[0].value;
                 while(j < size)
                 {
                     for(var x = j; x <= size; x++)
-                {
-                    j++;
-                    if(arr[x] == "1")
                     {
-                        number += "1";
-                    }
-                    if(arr[x] == "2")
-                    {
-                        number += "2";
-                    }
-                    if(arr[x] == "3")
-                    {
-                        number += "3";
-                    }
-                    if(arr[x] == "4")
-                    {
-                        number += "4";
-                    }
-                    else if(arr[x] == "5")
-                    {
-                        number += "5";
-                    }
-                    if(arr[x] == "6")
-                    {
-                        number += "6";
-                    }
-                    else if(arr[x] == "7")
-                    {
-                        number += "7";
-                    }
-                    else if(arr[x] == "8")
-                    {
-                        number += "8";
-                    }
-                    
-                    else if(arr[x] == "9")
-                    {
-                        number += "9";
-                    }
-                    else if((arr[x] == "+") || (arr[x] == "-") || (arr[x] == "/") || (arr[x] == "*") || (arr[x] == "%") || (arr[x] == "="))
-                    {
-                        var numbers = parseInt(number);
-                        /*wholeNo[numberIndex] = numbers;
-                        number = 0;
-                        numberIndex++;*/
-                        //console.log(numbers);
-                        number = 0;
-                        calculate();
-                        break;    
-                    } 
-                    }    }
-                    //console.log(wholeNo);
-                    var prevNo;
-                    function calculate(){
-                        if (arr[x] !== "=")
+                        j++;
+                        if(arr[x] == "1")
                         {
-                            prevNo = numbers;
-                            console.log(prevNo);
-                            numbers = 0;
+                            number += "1";
                         }
-                        else if(arr[x] === "=")
+                        if(arr[x] == "2")
                         {
-                            var result = prevNo + numbers;
-                            console.log(numbers);
-                            console.log(prevNo);
-                            console.log(result);
+                            number += "2";
                         }
-                    }       
+                        if(arr[x] == "3")
+                        {
+                            number += "3";
+                        }
+                        if(arr[x] == "4")
+                        {
+                            number += "4";
+                        }
+                        else if(arr[x] == "5")
+                        {
+                            number += "5";
+                        }
+                        if(arr[x] == "6")
+                        {
+                            number += "6";
+                        }
+                        else if(arr[x] == "7")
+                        {
+                            number += "7";
+                        }
+                        else if(arr[x] == "8")
+                        {
+                            number += "8";
+                        }
+                        else if(arr[x] == "9")
+                        {
+                            number += "9";
+                        }
+                        else if((arr[x] == "+") || (arr[x] == "-") || (arr[x] == "/") || (arr[x] == "x") || (arr[x] == "%") || (arr[x] == "="))
+                        {
+                            var numbers = parseInt(number);
+                            number = 0;
+                            calculate();
+                            break;    
+                        } 
+                    }
+                }
+                var prevNo;
+                var operand;
+                var result;
+                function calculate(){
+                    if (arr[x] !== "=")
+                    {
+                        prevNo = numbers;
+                        console.log(prevNo);
+                        numbers = 0;
+                        if (arr[x] === "+")
+                        {
+                            operand = "+";
+                        }
+                        if (arr[x] === "-")
+                        {
+                            operand = "-";
+                        }
+                        if (arr[x] === "x")
+                        {
+                            operand = "x";
+                        }
+                        if (arr[x] === "/")
+                        {
+                            operand = "/";
+                        }
+                        if (arr[x] === "%")
+                        {
+                            operand = "%";
+                        }
+                    }
+                    else if(arr[x] === "=")
+                    {
+                        if (operand == "+")
+                        {
+                            result = prevNo + numbers;
+                        }
+                        else if (operand == "-")
+                        {
+                            result = prevNo - numbers;
+                        }
+                        else if (operand == "x")
+                        {
+                            result = prevNo * numbers;
+                        }
+                        else if (operand == "/")
+                        {
+                            result = prevNo / numbers;
+                        }
+                        else if (operand == "%")
+                        {
+                            result = prevNo % numbers;
+                        }
+                        console.log(numbers);
+                        console.log(prevNo);
+                        console.log(result);
+                    }
+                }
+                blinker[0].value = (blinker[0].value + result);
             }
         </script>
     </head>
@@ -251,7 +288,7 @@
                     </td>
                     <td>
                         <button class = "button" onclick="times()">
-                            *
+                            x
                         </button>
                     </td>
                 </tr>
