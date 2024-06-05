@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>
+            The Framework
+        </title>
+        <style>
+            body{
+                display: grid;
+                align-content: baseline;
+                justify-content: center;
+            }
+            div{
+                text-align: center;
+            }
+            button{
+                align-content: end;
+            }
+            caption{
+                font-size: x-large;
+                font-variant-caps: small-caps;
+            }
+            td{
+                text-align: center;
+                width: max-content;
+            }
+        </style>
+        <script>
+            window.onload = function load()
+            {
+                function clock()
+                {
+                    var clock = document.getElementById("clock");
+                    var today = document.getElementById("day");
+                    var dateOfToday = document.getElementById("dateToday");
+                    var date = new Date();
+                    var day = date.getDay();
+                    switch (day)
+                    {
+                        case 0:
+                            day = "Sunday";
+                            break;
+                        case 1:
+                            day = "Monday";
+                            break;
+                        case 2:
+                            day = "Tuesday";
+                            break;
+                        case 3:
+                            day = "Wednesday";
+                            break;
+                        case 4:
+                            day = "Thursday";
+                            break;
+                        case 5:
+                            day = "Friday";
+                            break;
+                        case 6:
+                            day = "Saturday";
+                            break;
+                    }
+                    today.innerHTML = day;
+                    var dateToday = date.getDate();
+                    if (dateToday < 10)
+                    {
+                        dateToday = "0" + dateToday;
+                    }
+                    var month = date.getMonth();
+                    switch (month)
+                    {
+                        case 0:
+                            month = "January";
+                            break;
+                        case 1:
+                            month = "February";
+                            break;
+                        case 2:
+                            month = "March";
+                            break;
+                        case 3:
+                            month = "April";
+                            break;
+                        case 4:
+                            month = "May";
+                            break;
+                        case 5:
+                            month = "June";
+                            break;
+                        case 6:
+                            month = "July";
+                            break;
+                        case 7:
+                            month = "August";
+                            break;
+                        case 8:
+                            month = "September";
+                            break;
+                        case 9:
+                            month = "October";
+                            break;
+                        case 10:
+                            month = "November";
+                            break;
+                        case 11:
+                            month = "December";
+                            break;
+                    }
+                    var year = date.getFullYear();
+                    dateOfToday.innerHTML = dateToday + " " + month + "," + year;
+                    var hour = date.getHours();
+                    if (hour < 10)
+                    {
+                        hour = "0" + hour;
+                    }
+                    var minute = date.getMinutes();
+                    if (minute < 10)
+                    {
+                        minute = "0" + minute;
+                    }
+                    var second = date.getSeconds();
+                    if (second < 10)
+                    {
+                        second = "0" + second;
+                    }
+                    clock.innerHTML = hour + ":" + minute + ":" + second;
+                }
+                setInterval(clock, 1000);
+            }
+            var task;
+            var resource;
+            var deadline;
+            var inputs = new Array();
+            function addTask()
+            {
+                task = prompt("Enter name of task");
+                resource = prompt("Enter resources");
+                deadline = prompt("Enter deadline");
+                inputs[1] = task;
+                inputs[2] = resource;
+                inputs[4] = deadline;
+                oneMoreRow();
+            }
+            function oneMoreRow()
+            {
+                var addRow = document.getElementById("tbody");
+                var newRow = document.createElement("tr");
+                addRow.appendChild(newRow);
+                for (var i = 0; i < 7; i++)
+                {
+                    var newColumns = document.createElement("td");
+                    newRow.appendChild(newColumns);
+                    if(!(inputs[i]))
+                    {
+                        inputs[i] = "N/A";
+                    }
+                    var text = document.createTextNode(inputs[i]);
+                    newColumns.appendChild(text);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id = "clock"></div>
+        <div id = "day"></div>
+        <div id = "dateToday"></div>    
+        <button onclick = "addTask()">
+            +
+        </button>
+        <table border="1">
+            <caption>The Framework</caption>
+            <tbody id = "tbody">
+                <tr>
+                    <td>Priority Level</td>
+                    <td>Task</td>
+                    <td>Resource</td>
+                    <td>Difficulty</td>
+                    <td>Status</td>
+                    <td>Deadline</td>
+                    <td>Notes</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
