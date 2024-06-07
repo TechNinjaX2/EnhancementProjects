@@ -127,16 +127,82 @@
             }
             var task;
             var resource;
-            var deadline;
+            var deadline = new Array();
             var inputs = new Array();
             function addTask()
             {
                 task = prompt("Enter name of task");
                 resource = prompt("Enter resources");
-                deadline = prompt("Enter deadline");
-                inputs[1] = task;
-                inputs[2] = resource;
-                inputs[4] = deadline;
+                deadlineCalc();
+                function deadlineCalc()
+                {
+                    deadline = prompt("Enter deadline:\n\tdd-mm-yyyy hh-mm");
+                    var date = new Date();
+                    var year = date.getFullYear();
+                    var month = date.getMonth();
+                    var dateToday = date.getDate();
+                    var deadliney = (deadline[6]+deadline[7]+deadline[8]+deadline[9]) - (year);
+                    var deadlinem = (deadline[3]+deadline[4]) - (month + 1);
+                    var deadlined = (deadline[0]+deadline[1]) - (dateToday);
+                    inputs[1] = task;
+                    inputs[2] = resource;
+                    if ((deadlined < 0) || (deadlinem < 0) || (deadliney < 0))
+                    {
+                        alert("Invalid Entry\nTime already passed");
+                        deadlineCalc();
+                    }
+                    else if(!(deadline))
+                    {
+                        inputs[5] = "TBD";
+                    }
+                    else
+                    {
+                        if ((deadlined == 0) && (deadlinem == 0) && (deadliney == 0))
+                        {
+                            {
+                                var date = new Date();
+                                var hour = date.getHours();
+                                var minute = date.getMinutes();
+                                var second = date.getSeconds();
+                                deadlinehr = (deadline[11] + deadline[12]) - (hour);
+                                deadlinemin = (deadline[14] + deadline[15] - 1) - (minute);
+                                deadlinesec = 60 - second;
+                                if ((deadline[14] + deadline[15]) < minute)
+                                {
+                                    deadlinemin = (60 + minute) - deadlinemin;
+                                    deadlinehr = deadlinehr - 1;
+                                }
+                                if (deadlinehr < 0)
+                                {
+                                    alert("Invalid Entry\nTime already passed");
+                                    deadlineCalc();
+                                }
+                                else if (deadlinehr == 0)
+                                {
+                                    if (deadlinemin < 0)
+                                    {
+                                        alert("Invalid Entry\nTime already passed");
+                                        deadlineCalc();
+                                    }
+                                    else
+                                    {
+                                        inputs[5] = deadlinehr + "h" + deadlinemin + "m" + deadlinesec + "s";
+                                    }
+                                }
+                                else
+                                {
+                                    inputs[5] = deadlinehr + "h" + deadlinemin + "m" + deadlinesec + "s";
+                                }
+                                console.log("me");
+                            }
+                        
+                        }
+                        else
+                        {
+                            inputs[5] = deadliney + "y" + deadlinem + "m" + deadlined + "d";
+                        }
+                    }
+                }
                 oneMoreRow();
             }
             function oneMoreRow()
@@ -161,7 +227,7 @@
     <body>
         <div id = "clock"></div>
         <div id = "day"></div>
-        <div id = "dateToday"></div>    
+        <div id = "dateToday"></div>  
         <button onclick = "addTask()">
             +
         </button>
