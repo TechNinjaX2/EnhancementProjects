@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <title>
+            The Framework 2.0
+        </title>
+        <style>
+            body{
+                background-color: black;
+                color: rgb(12, 252, 12);
+                padding: 0px 200px;
+                text-align: center;
+            }
+            .title{
+                font-variant-caps: small-caps;
+                font-size: xx-large;
+            }
+            .clock{
+                color: rgb(10, 188, 188);
+                box-shadow: 0 0 10px rgb(10, 188, 188);
+                font-size: xx-large;
+                text-shadow: 0 0 20px white;
+            }
+            details{
+                font-size: x-large;
+            }
+            input, select{
+                width: 100%;
+            }
+            button{
+                width: 20%;
+                height: 40px;
+                margin-top: 30px;
+                background-color: teal;
+                border-radius: 10px;
+                font-size: xx-large;
+                padding-bottom: 40px;
+            }
+            table{
+                border-color: blue;
+                border-style: solid;
+                width: 100%;
+            }
+            td{
+                border-color: blue;
+                border-style: solid;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "title">
+            The Framework
+        </div>
+        <div class = "clock">
+            <div id = "day"></div>
+            <div id = "clock"></div>
+            <div id = "date"></div>
+        </div>
+        <details>
+            <summary>
+                Add task
+            </summary>
+            <div>
+                <form>
+                    <h3>
+                        <b>
+                            Add Task
+                        </b>
+                    </h3>
+                    <label>
+                        Task:
+                    </label>
+                    <input id = "Task">
+                    <label>
+                        Resources:
+                    </label>
+                    <input id = "Resources">
+                    <label>
+                        Deadline:
+                    </label>
+                    <input id = "Deadline" type = "datetime-local">
+                    <label>
+                        Status:
+                    </label>
+                    <select id = "Status">
+                        <option>In Progress</option>
+                        <option>Delegated</option>
+                        <option>Deferred</option>
+                        <option>Completed</option>
+                    </select>
+                    <label>
+                        Notes:
+                    </label>
+                    <input id = "Notes">
+                    <button>+</button>
+                </form>
+            </div>
+        </details>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Level</td>
+                    <td>Task</td>
+                    <td>Resources</td>
+                    <td>Deadline</td>
+                    <td>Status</td>
+                    <td>Notes</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            function time()
+            {
+                var day = document.getElementById("day");
+                var clock = document.getElementById("clock");
+                var date = document.getElementById("date");
+                var now = new Date();
+                var dayString = {weekday: 'long'};
+                var format = {day: 'numeric', month: 'long' , year: 'numeric'};
+                var dayNow = now.toLocaleString(undefined, dayString)
+                var dateNow = now.toLocaleDateString(undefined, format);
+                var clockNow = now.toLocaleTimeString();
+                day.innerHTML = dayNow;
+                date.innerHTML = dateNow;
+                clock.innerHTML = clockNow;
+            }
+            setInterval(time, 1000);
+            time();
+        </script>
+    </body>
+</html>

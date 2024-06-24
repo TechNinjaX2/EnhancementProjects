@@ -9,6 +9,10 @@
                 align-content: baseline;
                 justify-content: center;
             }
+            .box{
+                background-color: blue;
+                width: 10px;
+            }
             div{
                 text-align: center;
             }
@@ -134,9 +138,12 @@
                 task = prompt("Enter name of task");
                 resource = prompt("Enter resources");
                 deadlineCalc();
+                function form(){
+                    
+                }
                 function deadlineCalc()
                 {
-                    deadline = prompt("Enter deadline:\n\tdd-mm-yyyy hh-mm");
+                    deadline = prompt(form());
                     var date = new Date();
                     var year = date.getFullYear();
                     var month = date.getMonth();
@@ -210,7 +217,28 @@
                 var addRow = document.getElementById("tbody");
                 var newRow = document.createElement("tr");
                 addRow.appendChild(newRow);
-                for (var i = 0; i < 7; i++)
+                for(var i = 0;i < 7; i++)
+                {
+                    if(!(inputs[i]))
+                    {
+                        inputs[i] = "N/A";
+                    }
+                }
+                newRow.innerHTML = `
+                <td>${inputs[0]}</td>
+                <td>${inputs[1]}</td>
+                <td>${inputs[2]}</td>
+                <td>${inputs[3]}</td>
+                <td>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </td>
+                <td>${inputs[5]}</td>
+                <td>${inputs[6]}</td>`;
+                console.log(newRow.innerHTML);
+                /*for (var i = 0; i < 7; i++)
                 {
                     var newColumns = document.createElement("td");
                     newRow.appendChild(newColumns);
@@ -220,7 +248,7 @@
                     }
                     var text = document.createTextNode(inputs[i]);
                     newColumns.appendChild(text);
-                }
+                }*/
             }
         </script>
     </head>
@@ -248,7 +276,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>
+                        <select>
+                            <option id = "options" >1</option>
+                            <option>2</option>
+                        </select>
+                    </td>
                     <td></td>
                     <td></td>
                 </tr>
